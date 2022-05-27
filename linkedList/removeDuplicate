@@ -1,0 +1,44 @@
+class Node{
+    int data;
+    Node next;
+
+    public Node(int data){
+        this.data = data;
+    }
+}
+
+----------------------------------------------------------------------MAIN CODE----------------------------------------------------------------------
+public class removeDuplicate {
+
+    Node head;
+
+    public static Node duplicate(Node head){
+
+        Node temp = head, prev = head;
+
+        if(head == null) return null;
+        while(temp != null){
+
+            if(prev.data != temp.data){
+                prev.next = temp;
+                prev = temp;
+            }
+            temp = temp.next;
+        }
+        if(prev != temp) prev.next = null;
+        return head;
+    }
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+    public static void display(Node head){
+
+        if(head == null) System.out.println(null);
+
+        Node temp = head;
+        while(temp != null){
+            System.out.print(temp.data+" ");
+            temp = temp.next;
+        }
+
+    }
+}
